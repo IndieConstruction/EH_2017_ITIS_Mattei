@@ -20,12 +20,21 @@ public class Player : MonoBehaviour {
 		Transform thisTransform;
 		thisTransform = gameObject.GetComponent<Transform>();
 
+		Animator thisAnimator;
+		thisAnimator = gameObject.GetComponent<Animator>();
+
 		if (Input.GetKey (KeyCode.A)) {
 			// Vado a sinistra
 			thisTransform.position = thisTransform.position + new Vector3 (-MovementSpeed, 0f, 0f);
+			thisAnimator.SetInteger ("MovementState", 2);
+			// gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2 (-MovementSpeed, 0), ForceMode2D.Impulse);
 		}else if(Input.GetKey(KeyCode.D)){
 			// Vado a destra
 			thisTransform.position = thisTransform.position + new Vector3 (MovementSpeed, 0f, 0f);
+			thisAnimator.SetInteger ("MovementState", 1);
+			// gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2 (MovementSpeed, 0), ForceMode2D.Impulse);
+		}else{
+			thisAnimator.SetInteger ("MovementState", 0);
 		}
 
 		if (Input.GetKeyDown(KeyCode.O) && IsGrounded == true) {
