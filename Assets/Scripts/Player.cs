@@ -7,6 +7,7 @@ public class Player : MonoBehaviour {
 	public string Name;
 	public float MovementSpeed = 0.1f;
 	public float JumpForce = 0.1f;
+	public int Life = 1;
 
 	private bool IsGrounded = true;
 
@@ -17,6 +18,7 @@ public class Player : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		CheckLife ();
 		Transform thisTransform;
 		thisTransform = gameObject.GetComponent<Transform>();
 
@@ -48,5 +50,12 @@ public class Player : MonoBehaviour {
 
 	void OnCollisionExit2D(Collision2D coll){
 		IsGrounded = false;
+	}
+
+	public void CheckLife(){
+		if (Life <= 0) {
+			Destroy (this.gameObject);
+			Debug.Log (Life);
+		}
 	}
 }
