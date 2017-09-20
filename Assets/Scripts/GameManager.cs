@@ -7,15 +7,4 @@ public class GameManager : MonoBehaviour {
 	public int ScoreCounter;
 	public HudManager hd;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-
 }

@@ -9,7 +9,7 @@ public class Moneta : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		gm = FindObjectOfType<GameManager>();
 	}
 	
 	// Update is called once per frame
@@ -18,12 +18,13 @@ public class Moneta : MonoBehaviour {
 	}
 
 	public void OnCollisionEnter2D(Collision2D coll) {
-		if (coll.gameObject.tag == "Player")
+		if (coll.gameObject.tag == "Player"){
 			//Aumenta il punteggio
 			gm.ScoreCounter += BonusValue;
-		Debug.Log ("Il punteggio è :" + gm.ScoreCounter);
-		//Distrugge la Moneta
-			Destroy(this.gameObject);	
+			Debug.Log ("Il punteggio è :" + gm.ScoreCounter);
+			//Distrugge la Moneta
+			Destroy (this.gameObject);
+		}
 	}
 		
 }

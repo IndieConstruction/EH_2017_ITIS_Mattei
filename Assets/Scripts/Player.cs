@@ -7,8 +7,10 @@ public class Player : MonoBehaviour {
 	public string Name;
 	public float MovementSpeed = 0.1f;
 	public float JumpForce = 0.1f;
-	public int Life = 1;
+	public int ActualLife = 3;
+	public int Maxlife = 3;
 
+	public bool IsNormal = true;
 	private bool IsGrounded = true;
 
 	// Use this for initialization
@@ -52,10 +54,23 @@ public class Player : MonoBehaviour {
 		IsGrounded = false;
 	}
 
-	public void CheckLife(){
-		if (Life <= 0) {
+	void CheckLife(){
+		if (ActualLife <= 0) {
 			Destroy (this.gameObject);
-			Debug.Log (Life);
+			Debug.Log (ActualLife);
 		}
+	}
+
+	/// <summary>
+	/// Apllica gli effetti del powerup sul player.
+	/// </summary>
+	public void PowerUp(){
+		gameObject.GetComponent<Transform>().localScale = new Vector3(2f, 2f);
+	}
+	/// <summary>
+	/// Applia gli effetti del powerDown sul player.
+	/// </summary>
+	public void PowerDown(){
+		gameObject.GetComponent<Transform>().localScale = new Vector3(1f, 1f);
 	}
 }

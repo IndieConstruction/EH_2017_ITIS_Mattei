@@ -17,6 +17,7 @@ public class HudManager : MonoBehaviour {
 	}
 
 	public void SetScore(){
-		score.text = gm.ScoreCounter.ToString ();
+		score.text = gm.ScoreCounter.ToString();
+		//Debug.Log ("Score updated: " + gm.ScoreCounter); 
 	}
 }
