@@ -1,0 +1,6 @@
+TODO:
+
+- AI
+- Damage
+- Enemies
+- Goal
