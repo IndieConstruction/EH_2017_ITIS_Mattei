@@ -9,6 +9,7 @@ public class HudManager : MonoBehaviour {
 	public Image Heart1;
 	public Image Heart2;
 	public Image Hearth3;
+	public Transform WinPanel;
 
 	public GameManager gm;
 
@@ -19,5 +20,9 @@ public class HudManager : MonoBehaviour {
 	public void SetScore(){
 		score.text = gm.ScoreCounter.ToString();
 		//Debug.Log ("Score updated: " + gm.ScoreCounter); 
+	}
+
+	public void SetWin(){
+		WinPanel.gameObject.SetActive (true);
 	}
 }

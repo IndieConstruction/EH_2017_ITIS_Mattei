@@ -9,6 +9,7 @@ public class Player : MonoBehaviour {
 	public float JumpForce = 0.1f;
 	public int ActualLife = 3;
 	public int Maxlife = 3;
+	public bool IsRight = true;
 
 	public bool IsNormal = true;
 	private bool IsGrounded = true;
@@ -19,7 +20,7 @@ public class Player : MonoBehaviour {
 	}				
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 		CheckLife ();
 		Transform thisTransform;
 		thisTransform = gameObject.GetComponent<Transform>();
@@ -31,11 +32,13 @@ public class Player : MonoBehaviour {
 			// Vado a sinistra
 			thisTransform.position = thisTransform.position + new Vector3 (-MovementSpeed, 0f, 0f);
 			thisAnimator.SetInteger ("MovementState", 2);
+			IsRight = false;
 			// gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2 (-MovementSpeed, 0), ForceMode2D.Impulse);
 		}else if(Input.GetKey(KeyCode.D)){
 			// Vado a destra
 			thisTransform.position = thisTransform.position + new Vector3 (MovementSpeed, 0f, 0f);
 			thisAnimator.SetInteger ("MovementState", 1);
+			IsRight = true;
 			// gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2 (MovementSpeed, 0), ForceMode2D.Impulse);
 		}else{
 			thisAnimator.SetInteger ("MovementState", 0);
