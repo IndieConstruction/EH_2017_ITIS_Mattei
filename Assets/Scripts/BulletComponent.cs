@@ -23,4 +23,9 @@ public class BulletComponent : MonoBehaviour {
 	public void SetDirection(bool isRight){
 		IsRight = isRight;
 	}
-}
+		
+	void OnCollisionEnter2D(Collision2D coll){
+		if (coll.gameObject.tag =="Malus" || coll.gameObject.tag == "Enemy" ||coll.gameObject.tag == "Boss") {
+			Destroy (this.gameObject);
+		}
+	}}

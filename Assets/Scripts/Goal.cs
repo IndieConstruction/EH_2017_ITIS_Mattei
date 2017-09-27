@@ -12,7 +12,8 @@ public class Goal : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D coll){
 		if (coll.gameObject.tag == "Player") {
-			GM.Win();
+			GM.ChangeScene();
+			//GM.Win();
 		}
 	}
 

@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour {
 
 	public int ScoreCounter;
 	public HudManager hd;
+	public 
 
 	Player player;
 
@@ -19,6 +20,10 @@ public class GameManager : MonoBehaviour {
 		if (player.ActualLife <= 0) {
 			SceneManager.LoadScene (0);
 		}
+	}
+
+	public void ChangeScene(){
+		SceneManager.LoadScene ("Mario2D 1");
 	}
 
 	public void Win(){
